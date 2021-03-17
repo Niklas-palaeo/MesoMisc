@@ -1,0 +1,11 @@
+Package: MesoMiscTemplate
+Type: Package
+Title: RMarkdown and Latex Template for Meso Misc
+Version: 0.1.0
+Author: Niklas
+Maintainer: The package maintainer <niklas@palaeo.eu>
+Description: It is a Latex template that helps to typeset Articles for the Mesolithic
+    Miscellany journal
+License: Free to use and amend
+Encoding: UTF-8
+LazyData: true

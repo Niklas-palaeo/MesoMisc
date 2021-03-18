@@ -50,7 +50,8 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 \definecolor{MesoRed}{RGB}{170, 42, 12}
 \usepackage[font={small,it}]{caption} 
 
-
+% URL format
+\renewcommand\UrlFont{\sf\itshape}
 
 % Section title formatting
 
@@ -161,21 +162,25 @@ $for(author)$
  $endfor$
      \vskip 20pt%
          {\noindent\usebox\absbox\par}
+         
+ $if(keywords)$
     {\vspace{15pt}%
       {\noindent\normalsize \textbf{Keywords:} $keywords$ }\par}
       \vspace{6mm}
       \par%
+$endif$    
+ 
+ 
+ 
   }}
 \end{sf}
 
 % ___________END OF FRONT PAGE STUFF________________
 
 
- \linenumbers
-
+ 
  % Use "Eq" instead of "Equation" for equation citations.
  $body$
 
- \nolinenumbers
 
 \end{document}

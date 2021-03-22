@@ -1,0 +1,48 @@
+---
+title: "Empty title" #title inserted below
+author:
+- name: Johan G. Forchhammer
+  affiliation: Technical University of Denmark
+- name: Johannes J. S. Steenstrup
+  affiliation: University of Copenhagen
+- name: Jens J A Worsaae
+  affiliation: National Museum of Denmark
+
+citeas: "Forchhammer et al."
+volumeyear: "2021"
+issuenumber: "29"
+pagenumbers: "XX - XX"
+# DOI: "To be assigned"
+
+output: 
+  pdf_document:
+    # citation_package: natbib
+    keep_tex: true
+    # fig_caption: true
+    latex_engine: xelatex
+    template: template.tex
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H')
+```
+
+# Introduction {#introduction}
+Here is the text!
+
+
+\begin{minipage}[t]{150mm}
+\vspace{6mm}
+{\center\large\textbf{The Drowning Land} \par
+\normalsize{David M. Donachie, (2021), Caab Publishing Ltd., Chichester. ISBN: 978-1913781064, 272p. }
+\normalsize{Available from:} \url{https://www.teuton.org/~stranger/TheDrowningLand}
+}
+    \end{minipage}
+
+
+# Insert wrapped figures like this
+
+
+\begin{wrapfigure}{l}{0.42\textwidth}
+    \includegraphics[width=0.42\textwidth]{fig1.png}
+\end{wrapfigure}

@@ -1,17 +1,17 @@
 ---
-title: "A Pandoc Markdown Article Starter and Template, but also loads more stuff just so that the title is huge"
+title: "Empty title"
 author:
-- name: Mary Margaret Albright
-  affiliation: Clemson University
-- name: Steven V. Miller
-  affiliation: Pendelton State University
-- name: Rembrandt Q. Einstein
-  affiliation: Springfield University
-# abstract: ""
+- name: Johan G. Forchhammer
+  affiliation: Technical University of Denmark
+- name: Johannes J. S. Steenstrup
+  affiliation: University of Copenhagen
+- name: Jens J A Worsaae
+  affiliation: National Museum of Denmark
+abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut elit odio. Donecfermentum tellus neque, vitae fringilla orci pretium vitae. Fusce maximus finibusfacilisis. Donec ut ullamcorper turpis. Donec ut porta ipsum. Nullam cursus mau-ris a sapien ornare pulvinar. Aenean malesuada molestie erat quis mattis. Prae-sent scelerisque posuere faucibus. Praesent nunc nulla, ullamcorper ut ullamcor-per sed, molestie ut est. Donec consequat libero nisi, non semper velit vulputate et.Quisque eleifend tincidunt ligula, bibendum finibus massa cursus eget. Curabituraliquet vehicula quam non pulvinar. Aliquam facilisis tortor nec purus finibus, sitamet elementum eros sodales. Ut porta porttitor vestibulum. Integer molestie, leout maximus aliquam, velit dui iaculis nibh, eget hendrerit purus risus sit amet do-lor. Sed sed tincidunt ex. Curabitur imperdiet egestas tellus in iaculis. Maecenasante neque, pretium vel nisl at, lobortis lacinia neque. In gravida elit vel volutpatimperdiet. Sed ut nulla arcu. Proin blandit interdum ex sit amet laoreet. Phasellusefficitur, sem hendrerit mattis dapibus, nunc tellus ornare nisi, nec eleifend enimnibh ac ipsum. Aenean tincidunt nisl sit amet facilisis faucibus. Donec odio erat,bibendum eu imperdiet sed, gravida luctus turpis."
 keywords: "Keywords, r markdown, knitr"
-citeas: "Albright et al."
+citeas: "Forchhammer et al."
 volumeyear: "2021"
-issuenumber: "25"
+issuenumber: "29"
 pagenumbers: "XX - XX"
 # DOI: "To be assigned"
 
@@ -21,7 +21,7 @@ output:
     keep_tex: true
     # fig_caption: true
     latex_engine: xelatex
-    template: template_report.tex
+    template: template.tex
 ---
 
 ```{r global_options, include=FALSE}
@@ -31,16 +31,16 @@ knitr::opts_chunk$set(fig.pos = 'H')
 # Introduction {#introduction}
 Here is the text!
 
-## Another bit about nothing
+## Subheading
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut elit odio. Donecfermentum tellus neque, vitae fringilla orci pretium vitae. Fusce maximus finibus facilisis. Donec ut ullamcorper turpis. Donec ut porta ipsum. Nullam cursus mauris a sapien ornare pulvinar. Aenean malesuada molestie erat quis mattis. Praesent scelerisque posuere faucibus.
-```{r logo, echo=FALSE, fig.align='center', fig.cap="this is now the new caption. But is it fig 1 or fig 2?", fig.pos="H", out.width='20%'}
+```{r logo, echo=FALSE, fig.align='center', fig.cap="Empty caption", fig.pos="H", out.width='20%'}
 knitr::include_graphics('MM_Logo.png')
 ```
 Praesent nunc nulla, ullamcorper ut ullamcor-per sed, molestie ut est. Donec consequat libero nisi, non semper velit vulputate et.Quisque eleifend tincidunt ligula, bibendum finibus massa cursus eget. Curabituraliquet vehicula quam non pulvinar. Aliquam facilisis tortor nec purus finibus, sitamet elementum eros sodales. 
 
 
 # Tables
-Want a table? This will create one.
+raesent nunc nulla, ullamcorper ut ullamcor-per sed, molestie ut est. Donec consequat libero nisi, non semper velit vulputate et.Quisque eleifend tincidunt ligula, bibendum finibus massa cursus eget. Curabituraliquet vehicula quam non pulvinar. Aliquam facilisis tortor nec purus finibus, sitamet elementum eros sodales.
 
 ```{r tableo, echo=FALSE}
 table1 <- tibble::tribble(
@@ -49,17 +49,17 @@ table1 <- tibble::tribble(
          "Cell 3",        "Cell 4"
   )
 knitr::kable(table1,
-             caption = "Yeah, man captions for tables")
+             caption = "Empty caption")
 ```
 
-## subtable
+## subheading
 Ut porta porttitor vestibulum. Integer molestie, leout maximus aliquam, velit dui iaculis nibh, eget hendrerit purus risus sit amet do-lor. Sed sed tincidunt ex. Curabitur imperdiet egestas tellus Figure \@ref(fig:logo)) or Table \@ref(tab:tableo)) in iaculis. 
 
-### subsubtable
+### subsubheading
 Maecenasante neque, pretium vel nisl at, lobortis lacinia neque. In gravida elit vel volutpatimperdiet. Sed ut nulla arcu. Proin blandit interdum ex sit amet laoreet. Phasellusefficitur, sem hendrerit mattis dapibus, nunc tellus ornare nisi, nec eleifend enimnibh ac ipsum.  Aenean tincidunt nisl sit amet facilisis faucibus. Donec odio erat,bibendum eu imperdiet sed, gravida luctus turpis.
 
 
-```{r echo=FALSE, fig.cap="This is a rather nasty figure. But it's big",fig.align='center',fig.pos="H", message=FALSE, warning=FALSE,out.width='40%'}
+```{r echo=FALSE, fig.cap="empty caption",fig.align='center',fig.pos="H", message=FALSE, warning=FALSE,out.width='40%'}
 library(tidyverse)
 mtcars %>% 
   select(mpg,disp) %>% 

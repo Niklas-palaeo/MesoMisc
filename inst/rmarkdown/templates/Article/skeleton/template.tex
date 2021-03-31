@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{article}
+\documentclass[hidelinks,12pt,a4paper]{article}
 
 
 \usepackage{geometry}
@@ -22,6 +22,7 @@
 \usepackage{xcolor}
 \usepackage{longtable,booktabs}
 \usepackage{titlesec}
+\usepackage[most]{tcolorbox}
 \usepackage{hyperref}
 
 %\usepackage{showframe}  
@@ -75,6 +76,10 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 \lhead{$citeas$ ($volumeyear$)}
 \rfoot{Page \thepage}
 
+$if(pagestart)$
+\setcounter{page}{$pagestart$}
+$endif$
+
 
 %Format of title
 \newcommand{\titlesize}{\fontsize{22.0}{20pt}\selectfont}
@@ -85,10 +90,11 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 \let\@keywords\@empty
 
 %Format of abstract
+
 \newbox\absbox
 \def\abstract{\lrbox\absbox\minipage{\textwidth}%
-  \sf\normalsize\bfseries\color{MesoRed}%
-  \section*{\sf\normalsize\color{black}\textbf{Abstract}}\vskip -1mm%
+  \normalsize
+    \section*{\normalsize\color{black}\textbf{Abstract}}\vskip -1mm%
   }
 \def\endabstract{\endminipage\endlrbox}
 
@@ -128,10 +134,11 @@ $if(abstract)$
 
 \begin{abstract}
 
-
-\noindent $abstract$
-
-
+\colorbox{gray!10}{
+\begin{minipage}{\textwidth}
+\noindent{$abstract$}
+\end{minipage}
+}
 
 \end{abstract}
 

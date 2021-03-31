@@ -20,7 +20,7 @@ output:
     keep_tex: true
     # fig_caption: true
     latex_engine: xelatex
-    template: template.tex
+    template: template_book_review.tex
 ---
 
 ```{r global_options, include=FALSE}

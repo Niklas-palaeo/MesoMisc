@@ -22,7 +22,6 @@
 \usepackage{xcolor}
 \usepackage{longtable,booktabs}
 \usepackage{titlesec}
-\usepackage[most]{tcolorbox}
 \usepackage{wrapfig}
 \usepackage{hyperref}
 
@@ -53,7 +52,7 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 \usepackage[font={small,it}]{caption} 
 
 % URL format
-\renewcommand\UrlFont{\itshape}
+\renewcommand\UrlFont{\sf\itshape}
 
 % Section title formatting
 
@@ -73,15 +72,14 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\footnotesize{\journalname : $issuenumber$}}
-\lhead{\footnotesize{$citeas$ ($volumeyear$)}}
-\lfoot{\footnotesize{ISSN 0259-3548}}
-\rfoot{\footnotesize{\thepage}}
+\rhead{\journalname : $issuenumber$}
+\lhead{$citeas$ ($volumeyear$)}
+\rfoot{Page \thepage}
+
 
 $if(pagestart)$
 \setcounter{page}{$pagestart$}
 $endif$
-
 
 %Format of title
 \newcommand{\titlesize}{\fontsize{22.0}{20pt}\selectfont}
@@ -92,11 +90,10 @@ $endif$
 \let\@keywords\@empty
 
 %Format of abstract
-
 \newbox\absbox
 \def\abstract{\lrbox\absbox\minipage{\textwidth}%
-  \normalsize
-    \section*{\normalsize\color{black}\textbf{Abstract}}\vskip -1mm%
+  \sf\normalsize\bfseries\color{MesoRed}%
+  \section*{\sf\normalsize\color{black}\textbf{Abstract}}\vskip -1mm%
   }
 \def\endabstract{\endminipage\endlrbox}
 
@@ -136,11 +133,10 @@ $if(abstract)$
 
 \begin{abstract}
 
-\colorbox{gray!10}{
-\begin{minipage}{\textwidth}
-\noindent{$abstract$}
-\end{minipage}
-}
+
+\noindent $abstract$
+
+
 
 \end{abstract}
 
@@ -152,47 +148,19 @@ $endif$
 % _______________ FRONT PAGE STUFF _______________ 
 \begin{sf}
 % \global\@topnum\z@ % don't let figures interfere with this
-{\raggedright % Note the extra {
-\begin{minipage}[t]{120mm}
-  \vskip 2.5pt%
-{\raggedright\titlesize\textbf{$title$} \par \vspace*{5mm} \textbf{\large $subtitle$}}
-
-    \end{minipage}\hspace{7mm}\begin{minipage}[t]{40.0mm}
-\hbox{}\includegraphics[height=19mm]{MM_Logo}\\
-\scriptsize{Issue $issuenumber$, pp. $pagenumbers$}\\ 
-\scriptsize{$citeas$ ($volumeyear$)}\\
-$if(DOI)$
-\scriptsize{DOI: $DOI$}\\
-$endif$
-\end{minipage}
-
-{\par\large%
-      \vspace*{5mm}
-      \lineskip .5em%
-
-     \vskip 20pt%
-         {\noindent\usebox\absbox\par}
-         
- $if(keywords)$
-    {\vspace{15pt}%
-      {\noindent\normalsize \textbf{Keywords:} $keywords$ }\par}
-      \vspace{6mm}
-      \par%
-$endif$    
- 
- 
- 
-  }}
+\begin{center}
+\includegraphics[height=50mm]{MM_Head}\\
+\titlesize\textbf{Book reviews} \par
+\end{center}
 \end{sf}
 
 % ___________END OF FRONT PAGE STUFF________________
 
 
- \setlength{\parindent}{0em}
-
+ 
  % Use "Eq" instead of "Equation" for equation citations.
  $body$
-
+%      \vspace*{15mm}
 
 $for(author)$
 \begin{sf}

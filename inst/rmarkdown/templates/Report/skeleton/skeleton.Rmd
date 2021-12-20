@@ -13,6 +13,7 @@ citeas: "Forchhammer et al."
 volumeyear: "2021"
 issuenumber: "29"
 pagenumbers: "XX - XX"
+pagestart: "XX"
 # DOI: "To be assigned"
 
 output: 
@@ -21,7 +22,7 @@ output:
     keep_tex: true
     # fig_caption: true
     latex_engine: xelatex
-    template: template.tex
+    template: template_report.tex
 ---
 
 ```{r global_options, include=FALSE}

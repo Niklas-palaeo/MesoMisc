@@ -23,7 +23,6 @@
 \usepackage{longtable,booktabs}
 \usepackage{titlesec}
 \usepackage[most]{tcolorbox}
-\usepackage{wrapfig}
 \usepackage{hyperref}
 
 %\usepackage{showframe}  
@@ -53,7 +52,7 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 \usepackage[font={small,it}]{caption} 
 
 % URL format
-\renewcommand\UrlFont{\itshape}
+\renewcommand\UrlFont{\sf\itshape}
 
 % Section title formatting
 
@@ -73,10 +72,9 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\footnotesize{\journalname : $issuenumber$}}
-\lhead{\footnotesize{$citeas$ ($volumeyear$)}}
-\lfoot{\footnotesize{ISSN 0259-3548}}
-\rfoot{\footnotesize{\thepage}}
+\rhead{\journalname : $issuenumber$}
+\lhead{$citeas$ ($volumeyear$)}
+\rfoot{Page \thepage}
 
 $if(pagestart)$
 \setcounter{page}{$pagestart$}
@@ -155,8 +153,7 @@ $endif$
 {\raggedright % Note the extra {
 \begin{minipage}[t]{120mm}
   \vskip 2.5pt%
-{\raggedright\titlesize\textbf{$title$} \par \vspace*{5mm} \textbf{\large $subtitle$}}
-
+{\raggedright\titlesize\textbf{$title$} \par}
     \end{minipage}\hspace{7mm}\begin{minipage}[t]{40.0mm}
 \hbox{}\includegraphics[height=19mm]{MM_Logo}\\
 \scriptsize{Issue $issuenumber$, pp. $pagenumbers$}\\ 
@@ -169,7 +166,9 @@ $endif$
 {\par\large%
       \vspace*{5mm}
       \lineskip .5em%
-
+$for(author)$
+                               \textbf{$author.name$} \hskip 15pt \emph{\small $author.affiliation$}      \vskip 5pt 
+ $endfor$
      \vskip 20pt%
          {\noindent\usebox\absbox\par}
          
@@ -188,16 +187,9 @@ $endif$
 % ___________END OF FRONT PAGE STUFF________________
 
 
- \setlength{\parindent}{0em}
-
+ 
  % Use "Eq" instead of "Equation" for equation citations.
  $body$
 
-
-$for(author)$
-\begin{sf}
-\noindent\large\textbf{$author.name$} \emph{\small $author.affiliation$} 
-\end{sf}
- $endfor$
 
 \end{document}

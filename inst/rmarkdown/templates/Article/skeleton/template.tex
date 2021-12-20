@@ -72,9 +72,10 @@ BoldItalicFont=Metropolis-BoldItalic.otf
 
 \pagestyle{fancy}
 \fancyhf{}
-\rhead{\journalname : $issuenumber$}
-\lhead{$citeas$ ($volumeyear$)}
-\rfoot{Page \thepage}
+\rhead{\footnotesize{\journalname : $issuenumber$}}
+\lhead{\footnotesize{$citeas$ ($volumeyear$)}}
+\lfoot{\footnotesize{ISSN 0259-3548}}
+\rfoot{\footnotesize{\thepage}}
 
 $if(pagestart)$
 \setcounter{page}{$pagestart$}
@@ -92,7 +93,7 @@ $endif$
 %Format of abstract
 
 \newbox\absbox
-\def\abstract{\lrbox\absbox\minipage{\textwidth}%
+\def\abstract{\lrbox\absbox\minipage{167 mm}%
   \normalsize
     \section*{\normalsize\color{black}\textbf{Abstract}}\vskip -1mm%
   }
@@ -187,7 +188,8 @@ $endif$
 % ___________END OF FRONT PAGE STUFF________________
 
 
- 
+ \setlength{\parindent}{0em}
+
  % Use "Eq" instead of "Equation" for equation citations.
  $body$
 

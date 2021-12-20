@@ -1,0 +1,168 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,250mm},
+ left=20mm,
+ top=25mm,
+ }
+
+\setlength{\headsep}{10pt}  
+\setlength{\headheight}{14.5pt}  
+  
+  
+% Packages
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{lineno}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{longtable,booktabs}
+\usepackage{titlesec}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+
+%\usepackage{showframe}  
+
+
+% Variables 
+\def\journalname{Mesolithic Miscellany}
+
+\makeatletter   % ______________PUT FUNCTIONS AND STUFF below THIS LINE
+
+%Text format
+\usepackage{fontspec}
+
+\setromanfont[
+BoldFont=MinionPro-Bold.otf,
+ItalicFont=MinionPro-It.otf,
+BoldItalicFont=MinionPro-BoldIt.otf,
+]{MinionPro-Regular.otf}
+
+\setsansfont[
+BoldFont=Metropolis-Bold.otf,
+ItalicFont=Metropolis-RegularItalic.otf,
+BoldItalicFont=Metropolis-BoldItalic.otf
+]{Metropolis-Regular.otf}
+
+\definecolor{MesoRed}{RGB}{170, 42, 12}
+\usepackage[font={small,it}]{caption} 
+
+% URL format
+\renewcommand\UrlFont{\sf\itshape}
+
+% Section title formatting
+
+\titleformat*{\section} {\large\sf\bfseries}
+\titleformat*{\subsection}{\normalsize\sf\bfseries}
+\titleformat*{\subsubsection}{\normalsize\sf}
+
+                                   
+%\renewcommand\subsubsection{\@startsection {subsubsection}{1}{\z@}%
+%                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+%                                   {2.3ex \@plus.2ex}%
+%                                   {\normalsize\sf}}                                                                 
+
+% Header and Footer
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\footnotesize{\journalname : $issuenumber$}}
+\lhead{\footnotesize{$citeas$ ($volumeyear$)}}
+\lfoot{\footnotesize{ISSN 0259-3548}}
+\rfoot{\footnotesize{\thepage}}
+
+
+%Format of title
+\newcommand{\titlesize}{\fontsize{22.0}{20pt}\selectfont}
+
+%Format of Keywords
+\def\keywords#1{%
+  \gdef\@keywords{\begin{minipage}{\textwidth}{\normalsize \textbf{Keywords}}\\ \parbox[t]{\textwidth}{#1}\end{minipage}}}
+\let\@keywords\@empty
+
+%Format of abstract
+\newbox\absbox
+\def\abstract{\lrbox\absbox\minipage{\textwidth}%
+  \sf\normalsize\bfseries\color{MesoRed}%
+  \section*{\sf\normalsize\color{black}\textbf{Abstract}}\vskip -1mm%
+  }
+\def\endabstract{\endminipage\endlrbox}
+
+%Footnote with affiliations
+\skip\footins 20pt plus  8pt
+%\gdef\footnoterule{}
+\def\footnoterule{\kern-3\p@
+  \hrule \@width \columnwidth \kern 3mm}
+
+
+\newcommand{\email}[1]{%
+  \gdef\@email{%
+\footnotetext[0]{ Email: #1}}}
+\let\@email\@empty
+
+\def\corrauth#1{\gdef\@corrauth{%
+\footnotetext[0]{\par\vskip-3pt\noindent\textbf{Corresponding author:}\\ #1}}}
+\let\@corrauth\@empty
+
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
+
+%this helps with the tightlist error
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+\makeatother % ______________PUT FUNCTIONS AND STUFF ABOVE THIS LINE
+
+
+%Abstract
+$if(abstract)$
+
+\begin{abstract}
+
+
+\noindent $abstract$
+
+
+
+\end{abstract}
+
+$endif$
+
+
+\begin{document}
+
+% _______________ FRONT PAGE STUFF _______________ 
+\begin{sf}
+% \global\@topnum\z@ % don't let figures interfere with this
+\begin{center}
+\includegraphics[height=50mm]{MM_Logo}\\
+\titlesize\color{MesoRed}$title$ \par
+\end{center}
+\end{sf}
+
+% ___________END OF FRONT PAGE STUFF________________
+
+
+ 
+ % Use "Eq" instead of "Equation" for equation citations.
+ $body$
+%      \vspace*{15mm}
+
+$for(author)$
+\begin{sf}
+\noindent\large\textbf{$author.name$} \emph{\small $author.affiliation$}\par% 
+\end{sf}
+ $endfor$
+
+\end{document}
